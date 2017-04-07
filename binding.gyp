@@ -77,6 +77,11 @@
           '../deps/build/lib/libsodium.lib'
         ]
       }],
+      ['OS=="openbsd"', {
+        'libraries': [
+          '../deps/build/lib/libsodium.a'
+        ]
+      }],
       ['OS=="linux"', {
         'libraries': [
           '../deps/build/lib/libsodium.a'

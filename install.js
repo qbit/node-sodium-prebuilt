@@ -329,11 +329,15 @@ function isPreInstallMode() {
 
 
 // Start
+var make = 'make';
+if (os.platform() === 'openbsd') {
+    make = "gmake"
+}
 if (os.platform() !== 'win32') {
     if (isPreInstallMode()) {
-        run('make libsodium');
+        run(make + ' libsodium');
     } else {
-        run('make nodesodium');
+        run(make + ' nodesodium');
     }
 } else {
     checkMSVSVersion();
