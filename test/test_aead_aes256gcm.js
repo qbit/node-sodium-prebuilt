@@ -3092,7 +3092,6 @@ describe("AEAD", function() {
     // If CPU does not support AES256gcm don't test
     if (!sodium.crypto_aead_aes256gcm_is_available()) {
         console.log('AES 256 gcm not supported by CPU');
-        done();
         return;
     }
     it('aes256gcm should work for all ' + tests.length + ' test vectors', function(done) {
