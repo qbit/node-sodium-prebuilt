@@ -40,6 +40,9 @@
       'deps/build/include',
       "<!(node -e \"require('nan')\")"
     ],
+    'libraries': [
+      '../deps/build/lib/libsodium.a'
+    ],
     'cflags': ['-fPIC'],
     'configurations': {
       'Debug': {
@@ -59,9 +62,6 @@
     },
     'conditions': [
       ['OS=="mac"', {
-        'libraries': [
-          '../deps/build/lib/libsodium.a'
-        ],
         'variables': {
           'osx_min_version': "<!(sw_vers -productVersion | awk -F \'.\' \'{print $1 \".\" $2}\')"
         },
@@ -75,16 +75,6 @@
       ['OS=="win"', {
         'libraries': [
           '../deps/build/lib/libsodium.lib'
-        ]
-      }],
-      ['OS=="openbsd"', {
-        'libraries': [
-          '../deps/build/lib/libsodium.a'
-        ]
-      }],
-      ['OS=="linux"', {
-        'libraries': [
-          '../deps/build/lib/libsodium.a'
         ]
       }]
     ]
