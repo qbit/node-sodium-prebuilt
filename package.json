@@ -17,7 +17,7 @@
     "node-gyp": ">=3.3.1"
   },
   "scripts": {
-    "test": "make test",
+    "test": "./run_test.sh",
     "install": "prebuild --install --preinstall \"node install.js --preinstall && node install.js --install\"",
     "prebuild": "prebuild --all --preinstall \"node install.js --preinstall && node install.js --install\""
   },
