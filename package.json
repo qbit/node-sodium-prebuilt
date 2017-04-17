@@ -16,9 +16,9 @@
     "should": ">=2.1.0"
   },
   "scripts": {
-    "test": "make test",
-    "install": "prebuild --install --preinstall make",
-    "prebuild": "prebuild --all --preinstall make"
+    "test": "./runner test",
+    "install": "./runner install",
+    "prebuild": "./runner prebuild"
   },
   "repository": {
     "type": "git",

@@ -4,6 +4,13 @@ BINDIR = ./node_modules/.bin
 
 LIBSODIUM_DIR = ./deps/libsodium
 
+UNAME := $(shell uname)
+MAKE = "make"
+
+ifeq ($(UNAME), OpenBSD)
+	MAKE=gmake
+endif
+
 configure:
 	@cd $(LIBSODIUM_DIR)/ && ./autogen.sh
 	@cd $(LIBSODIUM_DIR)/ && ./configure
@@ -13,7 +20,7 @@ configure:
 sodium:
     ifeq (,$(wildcard deps/libsodium.gyp))
 	@echo Running make configure
-	@make configure
+	@$(MAKE) configure
     endif
 	$(BINDIR)/node-gyp rebuild
 	

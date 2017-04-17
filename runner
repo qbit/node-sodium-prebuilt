@@ -1,0 +1,30 @@
+#!/bin/sh
+
+CMD="${1}"
+OS=$(uname)
+MAKE="make"
+
+case $OS in
+	OpenBSD)
+		MAKE="gmake"
+		;;
+	FreeBSD)
+		MAKE="gmake"
+		;;
+	*)
+esac
+
+case $CMD in
+	test)
+		${MAKE} test
+		;;
+	install)
+		prebuild --install --preinstall ${MAKE}
+		;;
+	prebuild)
+		prebuild --all --preinstall ${MAKE}
+		;;
+	*)
+		echo "Invalid runner command"
+		;;
+esac
